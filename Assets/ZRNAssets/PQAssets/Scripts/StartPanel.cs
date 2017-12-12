@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class StartPanel : SingletonMonoBehaviour<StartPanel>
@@ -55,7 +56,7 @@ public class StartPanel : SingletonMonoBehaviour<StartPanel>
 	}
 
 	public void ShowTutorial(){
-		Application.LoadLevel ("TutorialScene");
+		SceneManager.LoadScene("TutorialScene");
 	}
 	
 }

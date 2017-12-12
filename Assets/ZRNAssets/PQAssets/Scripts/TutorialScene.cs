@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TutorialScene : MonoBehaviour {
@@ -13,6 +14,6 @@ public class TutorialScene : MonoBehaviour {
 	}
 
 	public void BackToTitle(){
-		Application.LoadLevel ("Main");
+		SceneManager.LoadScene("Main");
 	}
 }

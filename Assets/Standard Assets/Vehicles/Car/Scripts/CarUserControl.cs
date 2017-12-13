@@ -17,7 +17,7 @@ namespace UnityStandardAssets.Vehicles.Car
         }
 
 
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
             // pass the input to the car!
             float h = CrossPlatformInputManager.GetAxis("Horizontal");

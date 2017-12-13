@@ -987,6 +987,62 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 573096692}
+--- !u!1 &612951272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 612951273}
+  - component: {fileID: 612951276}
+  - component: {fileID: 612951274}
+  m_Layer: 0
+  m_Name: CubeDay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &612951273
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612951272}
+  m_LocalRotation: {x: -0.16237622, y: 0.84193933, z: 0.14872272, w: -0.49259904}
+  m_LocalPosition: {x: -11, y: 45, z: 99}
+  m_LocalScale: {x: 47.3812, y: 243.05626, z: 144.4107}
+  m_Children: []
+  m_Father: {fileID: 1053212937}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -894.81, y: 421.81, z: 515.06}
+--- !u!114 &612951274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612951272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5fcd7c9ae8747bfd40ac25e938bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: {fileID: 531796114}
+  timeToChangeLights: 5
+  dayTime: 0
+--- !u!65 &612951276
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612951272}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &675285125
 Prefab:
   m_ObjectHideFlags: 0
@@ -1138,7 +1194,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 49a0e923d39ec3c4c8bb97699e2f2903, type: 2}
       propertyPath: m_IsActive
@@ -1614,9 +1670,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1053212935}
   m_LocalRotation: {x: 0.50927293, y: 0.44354406, z: -0.011825206, w: 0.7374076}
-  m_LocalPosition: {x: -81.69954, y: 63.05557, z: -50.99799}
-  m_LocalScale: {x: 0.099999994, y: 0.100000024, z: 0.10000003}
-  m_Children: []
+  m_LocalPosition: {x: -81.703, y: 63.056, z: -51.001}
+  m_LocalScale: {x: 1.0387441, y: 1.0387452, z: 1.0387453}
+  m_Children:
+  - {fileID: 612951273}
+  - {fileID: 1535159864}
   m_Father: {fileID: 415286455}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 850.397, y: -457.788, z: -497.919}
@@ -1686,11 +1744,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4479627951878228, guid: 6ae9766348f024682a4bf15239771469, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 516.16
+      value: 503.2
       objectReference: {fileID: 0}
     - target: {fileID: 4479627951878228, guid: 6ae9766348f024682a4bf15239771469, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 2554.17
+      value: 463.9
       objectReference: {fileID: 0}
     - target: {fileID: 4479627951878228, guid: 6ae9766348f024682a4bf15239771469, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1731,6 +1789,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1012984194353818, guid: 6ae9766348f024682a4bf15239771469, type: 2}
+      propertyPath: m_Name
+      value: Jogador(Carro)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ae9766348f024682a4bf15239771469, type: 2}
   m_IsPrefabParent: 0
@@ -1766,6 +1828,62 @@ Transform:
   m_Father: {fileID: 1077688708}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1535159863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1535159864}
+  - component: {fileID: 1535159866}
+  - component: {fileID: 1535159865}
+  m_Layer: 0
+  m_Name: CubeNight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1535159864
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535159863}
+  m_LocalRotation: {x: -0.16237627, y: 0.8419393, z: 0.14872278, w: -0.49259907}
+  m_LocalPosition: {x: -151, y: 110, z: 61}
+  m_LocalScale: {x: 47.381252, y: 243.0565, z: 144.41083}
+  m_Children: []
+  m_Father: {fileID: 1053212937}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -894.81, y: 421.81, z: 515.06}
+--- !u!114 &1535159865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535159863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbc5fcd7c9ae8747bfd40ac25e938bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights: {fileID: 531796114}
+  timeToChangeLights: 5
+  dayTime: 1
+--- !u!65 &1535159866
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535159863}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1569315633
 GameObject:
   m_ObjectHideFlags: 0

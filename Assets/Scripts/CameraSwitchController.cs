@@ -7,7 +7,7 @@ public class CameraSwitchController : MonoBehaviour
     public GameObject[] cameras;
     public Text text;
 
-    private int m_CurrentActiveObject;
+    private int m_CurrentActiveObject = 0;
 
 
     private void OnEnable()
@@ -18,14 +18,11 @@ public class CameraSwitchController : MonoBehaviour
 
     public void NextCamera()
     {
-        int nextactiveobject = m_CurrentActiveObject++ % cameras.Length;
-
+        m_CurrentActiveObject = ++m_CurrentActiveObject % cameras.Length;
         for (int i = 0; i < cameras.Length; i++)
         {
-            cameras[i].SetActive(i == nextactiveobject);
+            cameras[i].SetActive(i == m_CurrentActiveObject);
         }
-
-        m_CurrentActiveObject = nextactiveobject;
         text.text = cameras[m_CurrentActiveObject].name;
     }
 }

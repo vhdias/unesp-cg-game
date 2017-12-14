@@ -19,20 +19,23 @@ namespace Cluster
 
         void OnTriggerEnter(Collider other)
         {
+            //Debug.Log("Trigger enter " + transform.parent.gameObject.name + ": " + other.gameObject.name);
             if ((layerMask.value & 1 << other.gameObject.layer) != 0)
                 onTriggerEnter.Invoke(other);
         }
 
         void OnTriggerExit(Collider other)
         {
+            //Debug.Log("Trigger exit " + transform.parent.gameObject.name + ": " + other.gameObject.name);
             if ((layerMask.value & 1 << other.gameObject.layer) != 0)
                 onTriggerExit.Invoke(other);
         }
 
         private void OnTriggerStay(Collider other)
         {
+            //Debug.Log("Trigger stay " + transform.parent.gameObject.name + ": " + other.gameObject.name);
             if ((layerMask.value & 1 << other.gameObject.layer) != 0)
-                onTriggerExit.Invoke(other);
+                onTriggerStay.Invoke(other);
         }
     }
 

@@ -7,6 +7,11 @@ public class SpeedLimitAndCarMoveBack : MonoBehaviour {
     public Text speedText;
     private float timerRe;
 	
+    public void MaxSpeed(float v)
+    {
+        maxSpeed = v;
+    }
+
 	void FixedUpdate () {
         float speed = VelocidadeKPH(GetComponent<Rigidbody>()) * speedScale;
         bool re = Re(GetComponent<Rigidbody>());

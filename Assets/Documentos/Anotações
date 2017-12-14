@@ -1,0 +1,39 @@
+Regras:
+	Carro:
+		Infrações
+			-Semáforo
+			-Limite de velocidade
+			-Celular
+			-Sentido da pista
+			-Pare
+			-Bater o carro
+		Avisos
+			-Velocidade baixa
+	Pedestre
+		Infrações
+			-Faixa
+		Avisos
+			-Olhar para os lados
+
+
+Pacotes:
+	Controle do carro e personagem
+		- Standard Assests
+	Infraestrutura das ruas e pavimentação
+		- Low Poly Street Pack
+	Carros
+		- 3D Low Poly Car for Games (Tocus)
+		- Package import: Low Poly Car Set 1 - Classic American Muscles
+		- Package import: Low Poly Car Set 2 - Tuningcars
+	Construções
+		- Town Houses Pack
+		- Building Apartment
+
+Medidas
+	Lagura relativa da quadra: 15 carros
+	Cruzamento: 3 carros
+
+
+
+
+

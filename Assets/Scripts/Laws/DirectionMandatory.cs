@@ -4,29 +4,72 @@ using UnityEngine;
 
 public class DirectionMandatory : MonoBehaviour {
     public Vector3 mandatoryDirection;
+    float signalX, signalY, signalZ;
+    bool isX, isY, isZ, timeOk = false;
+
+    private void Start()
+    {
+        signalX = Mathf.Sign(mandatoryDirection.x);
+        signalY = Mathf.Sign(mandatoryDirection.y);
+        signalZ = Mathf.Sign(mandatoryDirection.z);
+        Debug.Log(signalX + "   " + signalY + "   " + signalZ);
+        isX = Mathf.Abs(mandatoryDirection.x) == 1;
+        isY = Mathf.Abs(mandatoryDirection.y) == 1;
+        isZ = Mathf.Abs(mandatoryDirection.z) == 1;
+        if ((Mathf.Abs(mandatoryDirection.magnitude) != 1) || (!isX && !isY && !isZ))
+        {
+            Debug.Log(mandatoryDirection.magnitude + "    " + Mathf.Abs(mandatoryDirection.magnitude));
+            Debug.Log(isX.ToString() + isY.ToString() + isZ.ToString());
+            Destroy(this);
+            throw new UnityException("Direção inválida");
+        }
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        timeOk = false;
+        yield return new WaitForSecondsRealtime(5);
+        timeOk = true;
+    }
 
     private void OnTriggerStay(Collider other)
     {
-        var player = other.transform.parent;
-        if (player)
+        if (timeOk)
         {
-            player = player.parent;
-            if (!player) return;
-            Vector3 currentDirection = GetLocalDirection(player);
-            if (mandatoryDirection.magnitude != 1) throw new UnityException("Direção inválida");
-            if ((mandatoryDirection.x == 1 && Mathf.Round(currentDirection.x) < 0) ||
-                (mandatoryDirection.y == 1 && Mathf.Round(currentDirection.y) < 0) ||
-                (mandatoryDirection.z == 1 && Mathf.Round(currentDirection.z) < 0))
+            var player = other.transform.parent;
+            if (player)
             {
-                Debug.Log("Você está na direção contrária da via");
-                return;
+                player = player.parent;
+                if (!player) return;
+                Vector3 currentDirection = GetLocalDirection(player);
+                //Debug.Log(currentDirection);
+                //Debug.Log(signalX + "   " + signalY + "   " + signalZ);
+                //Debug.Log(Round(currentDirection.x) + "   " + Round(currentDirection.y) + "   " + Round(currentDirection.z));
+                if ((isX && Round(currentDirection.x) * signalX < 0) || 
+                    (isY && Round(currentDirection.y) * signalY < 0) ||
+                    (isZ && Round(currentDirection.z) * signalZ < 0))
+                {
+                    WrongDirection();
+                }
             }
-            throw new UnityException("Direção inválida");
         }
+    }
+
+    float Round(float f)
+    {
+        var i = f * 100;
+        //Debug.Log(Mathf.Round(i) / 100);
+        return Mathf.Round(i) / 100;
+    }
+
+    void WrongDirection()
+    {
+        Debug.Log("Você está na direção contrária da via");
     }
 
     Vector3 GetLocalDirection(Transform body)
     {
-        return body.InverseTransformVector(body.GetComponent<Rigidbody>().velocity);
+        return transform.InverseTransformDirection(body.GetComponent<Rigidbody>().velocity);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum DayTime
 {
@@ -13,6 +14,11 @@ public class LightLaw : MonoBehaviour {
     public float timeToChangeLights = 5;
     public DayTime dayTime; 
     bool timeOk = false;
+
+    [System.Serializable]
+    public class TriggerEvent : UnityEvent { }
+    public TriggerEvent MultaFarol = new TriggerEvent();
+    public TriggerEvent AlertaFarol = new TriggerEvent();
 
     private void Awake()
     {
@@ -50,10 +56,12 @@ public class LightLaw : MonoBehaviour {
                 if (dayTime == DayTime.Day)
                 {
                     Debug.Log("Recomenda-se desligar o farol");
+                    AlertaFarol.Invoke();
                 }
                 else
                 {
                     Debug.Log("Ligue o farol");
+                    MultaFarol.Invoke();
                 }
             }
         }
@@ -70,10 +78,12 @@ public class LightLaw : MonoBehaviour {
                 if (dayTime == DayTime.Night)
                 {
                     Debug.Log("Desligue o farol");
+                    AlertaFarol.Invoke();
                 }
                 else
                 {
                     Debug.Log("Ligue o farol");
+                    AlertaFarol.Invoke();
                 }
             }
         }

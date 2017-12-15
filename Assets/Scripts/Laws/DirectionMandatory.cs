@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DirectionMandatory : MonoBehaviour {
     public Vector3 mandatoryDirection;
     float signalX, signalY, signalZ;
     bool isX, isY, isZ, timeOk = false;
+
+    [System.Serializable]
+    public class TriggerEvent : UnityEvent { }
+    public TriggerEvent wrongDirection = new TriggerEvent();
 
     private void Start()
     {
@@ -66,6 +71,7 @@ public class DirectionMandatory : MonoBehaviour {
     void WrongDirection()
     {
         Debug.Log("Você está na direção contrária da via");
+        wrongDirection.Invoke();
     }
 
     Vector3 GetLocalDirection(Transform body)
